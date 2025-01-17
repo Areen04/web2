@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Sign Up</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+   <link rel="stylesheet" type="text/css" href="css/signup_style.css">
+   <link rel="shortcut icon" href="img/icon.png" type="image/png">
+   <script>
+      function toggleForm(role) {
+         document.getElementById("patientForm").style.display = role === "Patient" ? "block" : "none";
+         document.getElementById("doctorForm").style.display = role === "Doctor" ? "block" : "none";
+      }
+   </script>
+</head>
+<body>
+   <!-- Header Section -->
+   <header class="header_section">
+      <div class="container" style="margin-left: 9.3%;">
+         <a href="HomePage.html">
+            <img src="img/logo.png" alt="logo" style="width:20.5%;">
+         </a>
+      </div>
+   </header>
+
+   <!-- Main Signup Container -->
+   <div class="signup">
+      <h3 class="text-center">Sign Up</h3>
+
+      <!-- Role Selection -->
+      <div class="form-group text-center">
+         <label for="roleSelection">Select Role:</label>
+         <div id="roleSelection">
+            <input type="radio" name="role" id="rolePatient" value="Patient" onclick="toggleForm('Patient')" checked>
+            <label for="rolePatient">Patient</label>
+            <input type="radio" name="role" id="roleDoctor" value="Doctor" onclick="toggleForm('Doctor')">
+            <label for="roleDoctor">Doctor</label>
+         </div>
+      </div>
+
+      <!-- Patient Form -->
+      <form id="patientForm" method="post"  action="patient_homepage.html" class="mt-4">
+         <div class="form-row">
+            <div class="col">
+               <div class="input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" maxlength="20">
+               </div>
+            </div>
+            <div class="col">
+               <div class="input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" maxlength="20">
+               </div>
+            </div>
+         </div>
+         <div class="form-group mt-3">
+            <div class="input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+               </div>
+               <input type="text" class="form-control" id="id" name="id" placeholder="ID">
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
+               </div>
+               <select class="form-control" id="gender" name="gender">
+                  <option selected hidden disabled value="">Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+               </select>
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+               </div>
+               <input type="date" class="form-control" id="dob" name="dob">
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+               </div>
+               <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+               </div>
+               <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            </div>
+         </div>
+         <div class="text-center">
+            <button id="Pregister" type="submit" class="btn signup_btn">Register</button>
+         </div> 
+     </form>
+
+      <!-- Doctor Form -->
+      <form id="doctorForm" method="post" action="doctor_homepage.html" class="mt-4" style="display: none;">
+         <div class="form-row">
+            <div class="col">
+               <div class="input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" maxlength="20">
+               </div>
+            </div>
+            <div class="col">
+               <div class="input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" maxlength="20">
+               </div>
+            </div>
+         </div>
+         <div class="form-group mt-3">
+            <div class="input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+               </div>
+               <input type="text" class="form-control" id="id" name="id" placeholder="ID">
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-camera"></i></span>
+               </div>
+               <input type="file" class="form-control-file" id="photo" name="photo">
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
+               </div>
+               <select class="form-control" id="speciality" name="speciality">
+                  <option selected hidden disabled value="">Speciality</option>
+                  <option value="Cardiology">Cardiology</option>
+                  <option value="Neurology">Neurology</option>
+                  <option value="Orthopedics">Orthopedics</option>
+               </select>
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+               </div>
+               <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+               </div>
+               <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            </div>
+         </div>
+         <div class="text-center">
+            <button id="Dregister" type="submit" class="btn signup_btn">Register</button>
+         </div>
+      </form>
+   </div>
+</body>
+</html>
