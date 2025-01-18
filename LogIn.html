@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Login</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+      <link rel="stylesheet" type="text/css" href="css/login_style.css">
+      <link rel="shortcut icon" href="img/icon.png" type="image/png">
+   </head>
+   <body>
+      <!-- Header Section -->
+      <header class="header_section">
+         <div class="container" style="margin-left: 9.3%;">
+            <a href="HomePage.html">
+               <img src="img/logo.png" alt="logo" style="width:20.5%;">
+            </a>
+         </div>
+      </header>
+
+      <!-- Login Form -->
+      <div class="container mt-5">
+         <form method="post" class="login" onsubmit="handleLogin(event)">
+            <div class="form-group text-center">
+               <h3>Login</h3>
+            </div>
+            <div class="form-group">
+               <label for="email">Email Address</label>
+               <div class="input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                  </div>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
+               </div>
+            </div>
+            <div class="form-group">
+               <label for="password">Password</label>
+               <div class="input-group">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text"><i class="fas fa-key"></i></span>
+                  </div>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+               </div>
+            </div>
+            <div class="form-group">
+               <label>User Role</label>
+               <div>
+                  <div class="form-check form-check-inline">
+                     <input class="form-check-input" type="radio" name="role" id="patient" value="patient" required>
+                     <label class="form-check-label" for="patient">Patient</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                     <input class="form-check-input" type="radio" name="role" id="doctor" value="doctor" required>
+                     <label class="form-check-label" for="doctor">Doctor</label>
+                  </div>
+               </div>
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" id="login" value="Login" class="btn login_btn" >Login</button>
+            </div>
+         </form>
+      </div>
+
+      <!-- JavaScript to Handle Redirection -->
+      <script>
+         function handleLogin(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const role = document.querySelector('input[name="role"]:checked').value;
+
+            // Redirect user based on role
+            if (role === "patient") {
+               window.location.href = "PatientHomePage.html";
+            } else if (role === "doctor") {
+               window.location.href = "DoctorHomePage.html";
+            }
+         }
+      </script>
+   </body>
+</html>
