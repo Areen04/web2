@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescribe Medication</title>
+    
+    <link rel="shortcut icon" href="img/icon.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <style>
+        /* تحسين الخلفية */
+        body {
+            background-image: url('img/hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        /* تحسين تصميم الفورم ليكون احترافي مثل الصفحات السابقة */
+        .prescription-container {
+            max-width: 550px;
+            margin: auto;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.9); /* شفاف خفيف عشان يندمج مع الخلفية */
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* ظل خفيف عشان الشكل يكون أنيق */
+            border: 2px solid #ddd; /* لون حدود ناعم */
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        h2 {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-check {
+            margin-bottom: 10px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            font-weight: bold;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="prescription-container">
+            <h2>Patient's Medications</h2>
+
+            <form id="prescriptionForm">
+                <!-- معلومات المريض -->
+                <div class="mb-3">
+                    <label class="form-label">Patient's Name:</label>
+                    <input type="text" class="form-control" placeholder="Noora">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Age:</label>
+                    <input type="number" class="form-control" placeholder="20">
+                </div>
+
+                <!-- اختيار الجنس -->
+                <div class="mb-3">
+                    <label class="form-label">Gender:</label> <br>
+                    <input type="radio" id="male" name="gender" value="Male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="Female" checked>
+                    <label for="female">Female</label>
+                </div>
+
+                <!-- قائمة الأدوية -->
+                <div class="mb-3">
+                    <label class="form-label">Medications:</label> <br>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="aspirin" name="medication" value="Aspirin" checked>
+                        <label class="form-check-label" for="aspirin">Aspirin</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ibuprofen" name="medication" value="Ibuprofen">
+                        <label class="form-check-label" for="ibuprofen">Ibuprofen</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="paracetamol" name="medication" value="Paracetamol">
+                        <label class="form-check-label" for="paracetamol">Paracetamol</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="antibiotics" name="medication" value="Antibiotics">
+                        <label class="form-check-label" for="antibiotics">Antibiotics</label>
+                    </div>
+                </div>
+
+                <!-- زر الإرسال -->
+                <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+</form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("prescriptionForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Medications prescribed successfully!");
+            window.location.href = "doctor-homepage.html"; // توجيه للطبيب بعد الإرسال
+        });
+    </script>
+<footer style="background: rgba(255, 255, 255, 0.7); color: black; padding: 15px; margin-top: 50px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto;">
+        <!-- الحقوق على اليسار -->
+        <p style="margin: 0;">&copy; 2025 WeCare</p>
+
+        <!-- أيقونات السوشيال ميديا متراصة وفي نفس الخط -->
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <a href="https://web.whatsapp.com/" target="_blank">
+                <img src="img/whatsicon.png" alt="WhatsApp" style="width: 50px; height: 50px;">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/insta.png" alt="Instagram" style="width: 30px; height: 30px;">
+            </a>
+            <a href="https://www.snapchat.com/" target="_blank">
+                <img src="img/snapicon.png" alt="Snapchat" style="width: 50px; height: 50px;">
+            </a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

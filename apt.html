@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeCare - Book an Appointment</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/png">
+    
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style_aptmnt.css" />
+
+    <style>
+        /* تحسين الخلفية */
+        body {
+            background-image: url('img/hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        /* تحسين نموذج الحجز */
+        .appointment-container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid #000;
+            margin-right: 30px; /* حتى لا يكون ملاصق للطرف */
+        }
+
+        /* تحسين التباعد بين الفلاتر */
+        .filter-section {
+            margin-bottom: 20px;
+        }
+
+        .form-check {
+            margin-bottom: 8px;
+        }
+
+        /* تباعد الحقول في الفورم */
+        .mb-3 {
+            margin-bottom: 15px !important;
+        }
+
+        /* تحسين زرار الإرسال */
+        .btn-submit {
+            width: 100%;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        /* تحسين شكل الأطباء */
+        .doctor-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .doctor-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .doctor-card p {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* التأكد من وجود مسافة بين قائمة الأطباء والخلفية */
+        .doctor-section {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <!-- اليسار: نموذج الحجز -->
+            <div class="col-md-6">
+                <div class="appointment-container">
+                    <h2 class="text-center">Book an Appointment</h2>
+
+                
+               
+
+                    <!-- Appointment Form -->
+                    <form id="appointmentForm">
+                        <div class="mb-3">
+                            <label for="specialty" class="form-label">Select Specialty:</label>
+                            <div class="input-group">
+                                <select id="specialty" class="form-select">
+<option value="Cardiology">Cardiology</option>
+                                    <option value="Dermatology">Dermatology</option>
+                                    <option value="Dentist">Dentist</option>
+                                </select>
+                                <button type="button" class="btn btn-secondary">Submit</button>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="doctor" class="form-label">Select Doctor:</label>
+                            <select id="doctor" class="form-select">
+                                <option>Select Doctor</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Select Date:</label>
+                            <input type="date" id="date" class="form-control">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Select Time:</label>
+                            <input type="time" id="time" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="reason" class="form-label">Reason for Visit:</label>
+                            <textarea id="reason" class="form-control" rows="3"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-submit">Submit Booking</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- اليمين: صور الأطباء -->
+            <div >
+                <h3 class="text-center">Our Doctors</h3>
+                <div class="doctor-card">
+                    <img src="img/dr.png" alt="Doctor 1">
+                    <p>Dr. Smith - Cardiology</p>
+                </div>
+                <div class="doctor-card">
+                    <img src="img/dr2.png" alt="Doctor 2">
+                    <p>Dr. Johnson - Dermatology</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const specialtyDropdown = document.getElementById("specialty");
+            const doctorDropdown = document.getElementById("doctor");
+
+            const doctors = {
+                "Cardiology": ["Dr. Smith", "Dr. Johnson"],
+                "Dermatology": ["Dr. Lee", "Dr. Brown"],
+                "Dentist": ["Dr. Miller", "Dr. Davis"]
+            };
+
+            specialtyDropdown.addEventListener("change", function () {
+                const selectedSpecialty = specialtyDropdown.value;
+                doctorDropdown.innerHTML = "";
+
+                const defaultOption = document.createElement("option");
+                defaultOption.text = "Select Doctor";
+                doctorDropdown.appendChild(defaultOption);
+
+                doctors[selectedSpecialty].forEach(doctor => {
+                    const option = document.createElement("option");
+                    option.text = doctor;
+                    doctorDropdown.appendChild(option);
+                });
+            });
+
+            document.getElementById("appointmentForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+                alert("Appointment booked successfully!");
+            });
+        });
+    </script>
+
+<footer style="background: rgba(255, 255, 255, 0.7); color: black; padding: 15px; margin-top: 50px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto;">
+        <!-- الحقوق على اليسار -->
+        <p style="margin: 0;">&copy; 2025 WeCare</p>
+
+        <!-- أيقونات السوشيال ميديا متراصة وفي نفس الخط -->
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <a href="https://web.whatsapp.com/" target="_blank">
+                <img src="img/whatsicon.png" alt="WhatsApp" style="width: 50px; height: 50px;">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="img/insta.png" alt="Instagram" style="width: 30px; height: 30px;">
+            </a>
+            <a href="https://www.snapchat.com/" target="_blank">
+                <img src="img/snapicon.png" alt="Snapchat" style="width: 50px; height: 50px;">
+            </a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

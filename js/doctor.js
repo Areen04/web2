@@ -57,7 +57,7 @@ patients.forEach(patient => {
         <td>${patient.age}</td>
         <td>${patient.gender}</td>
         <td>${patient.medications}</td>
-        <td><a href="Medication-Page" class="btn btn-primary btn-sm">Prescribe</a></td>
+        <td><a href="preMed.html" class="btn btn-primary btn-sm">Prescribe</a></td>
     `;
     patientTable.appendChild(row);
 });

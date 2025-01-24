@@ -1121,3 +1121,24 @@ a:focus {
 .signup-link:hover {
   text-decoration: underline;
 }
+.footer {
+  background: rgba(0, 0, 0, 0.8); 
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
