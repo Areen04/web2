@@ -2,7 +2,7 @@
 body {
   font-family: 'Nunito', sans-serif;
   color: #000000;
-  background-image: url("img/hero-bg.png");
+  background-image: url("../img/hero-bg.png")!important;
   background-color: #ffffff;
   overflow-x: hidden;
   background-size: cover;
