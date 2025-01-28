@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
+
     <style>
         /* تحسين الخلفية */
         body {
@@ -55,13 +56,12 @@
             padding: 10px;
         }
     </style>
+
 </head>
 <body>
     <header class="header_section">
         <div class="container" style="margin-left: 5%; margin-top: 1%;">
-           <a href="HomePage.html">
-              <img src="img/logo2.png" alt="logo" style="width:15.5%;">
-           </a>
+            <img src="img/logo.png" alt="logo" style="width:15.5%;">
         </div>
      </header>
     <div class="container">
@@ -69,7 +69,7 @@
             <h2>Patient's Medications</h2>
 
             <form id="prescriptionForm">
-                <!-- معلومات المريض -->
+               
                 <div class="mb-3">
                     <label class="form-label">Patient's Name:</label>
                     <input type="text" class="form-control" placeholder="Noora">
@@ -80,7 +80,7 @@
                     <input type="number" class="form-control" placeholder="20">
                 </div>
 
-                <!-- اختيار الجنس -->
+                
                 <div class="mb-3">
                     <label class="form-label">Gender:</label> <br>
                     <input type="radio" id="male" name="gender" value="Male">
@@ -89,7 +89,7 @@
                     <label for="female">Female</label>
                 </div>
 
-                <!-- قائمة الأدوية -->
+               
                 <div class="mb-3">
                     <label class="form-label">Medications:</label> <br>
                     <div class="form-check">
@@ -110,8 +110,8 @@
                     </div>
                 </div>
 
-                <!-- زر الإرسال -->
-                <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+               
+                <button type="submit" class="btn btn-primary btn-submit" style="background-color: #40beaf;border-color: #40beaf;">Submit</button>
 </form>
         </div>
     </div>
@@ -120,9 +120,10 @@
         document.getElementById("prescriptionForm").addEventListener("submit", function(event) {
             event.preventDefault();
             alert("Medications prescribed successfully!");
-            window.location.href = "Doctor’s-Page.html"; // توجيه للطبيب بعد الإرسال
+            window.location.href = "Doctor’s-Page.html"; 
         });
     </script>
+<<<<<<< HEAD
 <footer style="background: #38B2AC; color: white; padding: 10px; margin-top: 50px; text-align: center; font-size: 0.9em;">
     <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; height: 50px;">
         <!-- الحقوق -->
@@ -132,8 +133,19 @@
         <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
             <!-- Contact Us -->
             <h5 style="margin: 0; font-size: 0.9em;">Contact Us</h5>
+=======
+<footer style="background: #38B2AC; color: white; padding: 15px; margin-top: 50px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; height: 100px;">
+        
+        <p style="margin: 0;">&copy; 2025 WeCare</p>
 
-            <!-- أيقونات السوشيال ميديا -->
+        
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+         
+            <h5 style="margin: 0;">Contact Us</h5>
+>>>>>>> 6e1db1204f21121fd75e712fbc3bd3c6f6a4f16d
+
+            
             <div style="display: flex; align-items: center; gap: 10px;">
                 <a href="https://web.whatsapp.com/" target="_blank">
                     <img src="img\facebook-icon (1).png" alt="WhatsApp" style="width: 20px; height: 20px;">
