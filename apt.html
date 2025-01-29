@@ -15,6 +15,10 @@
 </head>
 
 <body>
+    <div class="hero_area">
+        <div class="hero_bg_box">
+        <img src="img/hero-bg.png" alt="background">
+    </div>
     <header class="header_section">
         <div class="container">
               <img src="img/logo2.png" alt="logo" class="header_logo">
@@ -36,9 +40,9 @@
                             <label for="specialty" class="form-label">Select Specialty:</label>
                             <div class="input-group">
                                 <select id="specialty" class="form-select">
-<option value="Cardiology">Cardiology</option>
+                                    <option value="Cardiology">Cardiology</option>
                                     <option value="Dermatology">Dermatology</option>
-                                    <option value="Dentist">Dentist</option>
+                                    <option value="Dentistry">Dentistry</option>
                                 </select>
                                 <button type="button" class="btns btn-secondary submit-button"  >Submit</button>
                             </div>
@@ -95,7 +99,7 @@
             const doctors = {
                 "Cardiology": ["Dr. Smith", "Dr. Johnson"],
                 "Dermatology": ["Dr. Lee", "Dr. Brown"],
-                "Dentist": ["Dr. Miller", "Dr. Davis"]
+                "Dentistry": ["Dr. Miller", "Dr. Davis"]
             };
 
             specialtyDropdown.addEventListener("change", function () {
@@ -120,6 +124,7 @@
         });
     </script>
 
+  
 
 <footer style="background: #38B2AC; color: white; padding: 10px; margin-top: 50px; text-align: center; font-size: 0.9em;">
     <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; height: 50px;">
@@ -143,7 +148,6 @@
                     <img src="img\twitter-icon.png" alt="Snapchat" style="width: 20px; height: 20px;">
                 </a>
             </div>
-
         </div>
     </div>
 </footer>
