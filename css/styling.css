@@ -1,0 +1,45 @@
+.header_logo {
+    position: absolute; 
+    top: 3%;  /* Keeps it near the top in a scalable way */
+    left: 6%; /* Moves it slightly to the right */
+    max-width: 15%; /* Ensures proportional scaling */
+    height: auto; /* Maintains aspect ratio */
+}
+
+html,body{
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      width:100vw;
+      height: 100vh;
+      background-color: #eee;
+    }
+
+
+/* Universal button styles */
+.btns {
+    color: white;
+    background-color: #38B2AC; /* Default background color */
+    text-align: center;
+    padding: 10px 20px; /* Adjust padding as needed */
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold; /* Optional, makes the text bold */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    display: inline-block; /* Makes the button behave like a block but allow inline behavior */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Button hover state */
+.btns:hover {
+    color: white;
+    background-color: #40BEAF; /* Lighter color on hover */
+}
+

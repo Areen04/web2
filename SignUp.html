@@ -7,6 +7,7 @@
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
    <link rel="stylesheet" type="text/css" href="css/signup_style.css">
+   <link rel="stylesheet" type="text/css" href="css/styling.css">
    <link rel="shortcut icon" href="img/icon.png" type="image/png">
    <script>
       function toggleForm(role) {
@@ -14,24 +15,26 @@
          document.getElementById("doctorForm").style.display = role === "Doctor" ? "block" : "none";
       }
    </script>
+      <link rel="stylesheet" type="text/css" href="css/styling.css">
+      
 </head>
 <body>
    <!-- Header Section -->
    <header class="header_section">
-      <div class="container" style="margin-left: 9.3%;">
+      <div class="container">
          <a href="HomePage.html">
-            <img src="img/logo.png" alt="logo" style="width:20.5%;">
+            <img src="img/logo.png" alt="logo" class="header_logo">
          </a>
       </div>
    </header>
-
+   
    <!-- Main Signup Container -->
    <div class="signup">
       <h3 class="text-center">Sign Up</h3>
 
       <!-- Role Selection -->
       <div class="form-group text-center">
-         <label for="roleSelection">Select Role:</label>
+         <label for="roleSelection">Role:</label>
          <div id="roleSelection">
             <input type="radio" name="role" id="rolePatient" value="Patient" onclick="toggleForm('Patient')" checked>
             <label for="rolePatient">Patient</label>
@@ -180,12 +183,6 @@
          </div>
       </form>
    </div>
-   <div id="footer"></div>
-<script>
-    fetch("footer.html")
-        .then(response => response.text())
-        .then(data => document.getElementById("footer").innerHTML = data);
-</script>
 
 </body>
 </html>

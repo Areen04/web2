@@ -3,115 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeCare - Book an Appointment</title>
+    <title>Book an Appointment</title>
     <link rel="shortcut icon" href="img/icon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Numans&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="css/style_aptmnt.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-
-
-    <style>
-        /* تحسين الخلفية */
-        body {
-            background-image: url('img/hero-bg.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            font-family: 'Numans', sans-serif;
-            color: white;
-        }
-
-        .container {
-            margin-top: 50px;
-        }
-
-        /* تحسين نموذج الحجز */
-        .appointment-container {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-            border: 2px solid #000;
-            margin-right: 30px; /* حتى لا يكون ملاصق للطرف */
-            color:black;
-        }
-
-        /* تحسين التباعد بين الفلاتر */
-        .filter-section {
-            margin-bottom: 20px;
-        }
-
-        .form-check {
-            margin-bottom: 8px;
-        }
-
-        /* تباعد الحقول في الفورم */
-        .mb-3 {
-            margin-bottom: 15px !important;
-        }
-
-        /* تحسين زرار الإرسال */
-        .btn-submit {
-            width: 100%;
-            font-weight: bold;
-            padding: 10px;
-        }
-
-        /* تحسين شكل الأطباء */
-        .doctor-card {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .doctor-card img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-        }
-
-        .doctor-card p {
-            margin: 0;
-            font-weight: bold;
-        }
-
-        /* التأكد من وجود مسافة بين قائمة الأطباء والخلفية */
-        .doctor-section {
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    
-        }
-        .btn-secondary{
-            
-            padding: 10px;
-        }
-        .submit-button {
-    margin-left: 15px; 
-    background-color: rgba(170, 170, 170, 0.801); 
-    border-color: rgba(126, 126, 126, 0.6);
-}
-
-.submit-button:hover {
-    background-color: rgba(108, 117, 125, 1); 
-    border-color: rgba(108, 117, 125, 1);
-}
-    </style>
+   <link rel="stylesheet" type="text/css" href="css/styling.css">
 
 </head>
 
 <body>
     <header class="header_section">
-        <div class="container" style="margin-left: 5%; margin-top: 1%;">
-           <a href="HomePage.html">
-              <img src="img/logo2.png" alt="logo" style="width:15.5%;">
-
-           </a>
+        <div class="container">
+              <img src="img/logo2.png" alt="logo" class="header_logo">
         </div>
      </header>
     <div class="container">
@@ -134,7 +40,7 @@
                                     <option value="Dermatology">Dermatology</option>
                                     <option value="Dentist">Dentist</option>
                                 </select>
-                                <button type="button" class="btn btn-secondary submit-button"  >Submit</button>
+                                <button type="button" class="btns btn-secondary submit-button"  >Submit</button>
                             </div>
                         </div>
 
@@ -160,7 +66,7 @@
                             <textarea id="reason" class="form-control" rows="3"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-submit" style="background-color: #40beaf;border-color: #40beaf;">Submit Booking</button>
+                        <button type="submit" class="btns  btn-submit">Submit Booking</button>
                     </form>
                 </div>
             </div>

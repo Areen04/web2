@@ -1142,3 +1142,11 @@ a:focus {
 .footer a:hover {
   text-decoration: underline;
 }
+
+.header_logo {
+  position: absolute; 
+  top: 3%;  /* Keeps it near the top in a scalable way */
+  left: 6%; /* Moves it slightly to the right */
+  max-width: 15%; /* Ensures proportional scaling */
+  height: auto; /* Maintains aspect ratio */
+}
