@@ -4,7 +4,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            font-family: Arial, sans-serif;
+            font-family: 'Numans', sans-serif;
         }
 
         .container {
@@ -22,12 +22,10 @@
             border: 2px solid #ddd; 
         }
 
-        .form-label {
-            font-weight: bold;
-        }
+      
 
         h2 {
-            font-weight: bold;
+           
             text-align: center;
             margin-bottom: 20px;
         }
