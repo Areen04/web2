@@ -15,11 +15,8 @@
          document.getElementById("doctorForm").style.display = role === "Doctor" ? "block" : "none";
       }
    </script>
-      <link rel="stylesheet" type="text/css" href="css/styling.css">
-      
 </head>
 <body>
-   <!-- Header Section -->
    <header class="header_section">
       <div class="container">
          <a href="HomePage.html">
@@ -28,11 +25,9 @@
       </div>
    </header>
    
-   <!-- Main Signup Container -->
    <div class="signup">
       <h3 class="text-center">Sign Up</h3>
 
-      <!-- Role Selection -->
       <div class="form-group text-center">
          <label for="roleSelection">Role:</label>
          <div id="roleSelection">
@@ -43,7 +38,6 @@
          </div>
       </div>
 
-      <!-- Patient Form -->
       <form id="patientForm" method="post" action="pationt-page.html" class="mt-4">
          <div class="form-row">
             <div class="col">
@@ -112,7 +106,6 @@
          </div> 
      </form>
 
-      <!-- Doctor Form -->
       <form id="doctorForm" method="post" action="Doctor’s-Page.html" class="mt-4" style="display: none;">
          <div class="form-row">
             <div class="col">
@@ -158,7 +151,6 @@
                   <option value="Cardiology">Cardiology</option>
                   <option value="Dentistry">Dentistry</option>
                   <option value="Dermatology">Dermatology</option>
-                  
                </select>
             </div>
          </div>
@@ -183,6 +175,5 @@
          </div>
       </form>
    </div>
-
 </body>
 </html>
