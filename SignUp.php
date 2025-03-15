@@ -1,3 +1,18 @@
+
+<?php include 'db_connect.php';
+if (isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0) {
+   $image_extension = pathinfo($_FILES["photo"]["name"], PATHINFO_EXTENSION); // استخراج الامتداد
+   $uniqueFileName = uniqid() . "." . $image_extension; // توليد اسم فريد
+   $target_dir = "uploads/"; // مجلد التخزين
+   $target_file = $target_dir . $uniqueFileName;
+
+   // نقل الصورة إلى مجلد uploads
+   if (!move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
+       die("Failed to upload image.");
+   }
+}
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
