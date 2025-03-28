@@ -1,15 +1,22 @@
+<?php
+session_start();
+if (isset($_SESSION['success'])) {
+    echo "<script>alert('" . $_SESSION['success'] . "');</script>";
+    unset($_SESSION['success']);
+}
+?>
+
 <?php include 'db_connect.php';
-$conn = new mysqli("localhost","root","","wecare");
 
 
-if ($conn->connect_error) {
-    die("connectin field" . $conn->connect_error);
+if ($connection->connect_error) {
+    die("connectin field" . $connection->connect_error);
 }
 
 
 if (!isset($_SESSION['doctor_id'])) {
     
-    header("Location: login.php");
+    header("Location: LogIn.html");
     exit();
 }
 
@@ -19,7 +26,7 @@ $query = "SELECT d.firstName, d.lastName, d.emailAddress, d.uniqueFileName, s.sp
           JOIN Speciality s ON d.SpecialityID = s.id 
           WHERE d.id = $doctor_id";
 
-$result = $conn->query($query);
+$result = $connection->query($query);
 
 
 if ($result->num_rows == 1) {

@@ -3,11 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
 
-// اتصال بقاعدة البيانات
-$conn = new mysqli("localhost", "root", "root", "wecare", 8889);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'db_connect.php';
 
 $error = "";
 
@@ -19,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($email) || empty($password) || empty($role)) {
         $error = "Please fill all fields.";
     } else {
-        $stmt = $conn->prepare("SELECT id, firstName, lastName, password FROM " . ($role == "doctor" ? "doctor" : "patient") . " WHERE emailAddress = ?");
+        $stmt = $connection->prepare("SELECT id, firstName, lastName, password FROM " . ($role == "doctor" ? "doctor" : "patient") . " WHERE emailAddress = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt->store_result();
@@ -35,9 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // توجيه المستخدم حسب الدور
                 if ($role == "doctor") {
-                    header("Location: Doctor’s-Page.html");
+                    header("Location: Doctor-Page.php");
                 } else {
-                    header("Location: pationt-page.html");
+                    header("Location: pationt-page.php");
                 }
                 exit();
             } else {
@@ -50,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // خزن الرسالة في السيشن وارجع لصفحة الفورم
     $_SESSION['login_error'] = $error;
-    header("Location: login_form.php");
+    header("Location: LogIn.html");
     exit();
 }
 ?>

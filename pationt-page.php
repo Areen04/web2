@@ -1,9 +1,18 @@
 <?php
 session_start();
+if (isset($_SESSION['success'])) {
+    echo "<script>alert('" . $_SESSION['success'] . "');</script>";
+    unset($_SESSION['success']);
+}
+?>
+
+<?php
+session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'patient') {
     header("Location: LogIn.php");
     exit();
 }
+
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
