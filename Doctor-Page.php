@@ -60,7 +60,9 @@ if ($result->num_rows == 1) {
         <div class="bg-primary text-white text-center py-5" style="background-size: cover; height: 300px; background-image: url('img/hero-bg.png');">
             <div class="container">
                 <div class="position-absolute top-0 end-0 m-3">
-                    <a href="HomePage.html" class="text-white fw-bold text-decoration-none fs-4">Log Out</a>
+                    <a href="logout.php" class="text-white fw-bold text-decoration-none fs-4">
+                        <img src="img/logoutIcon.png" alt="Logout" width="50">
+                    </a>
                 </div>
                 <div class="container">
                     <img src="img/logo2.png" alt="logo" class="header_logo">

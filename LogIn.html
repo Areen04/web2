@@ -23,7 +23,19 @@
             <h3>Login</h3>
          </div>
 
-         
+         <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const error = params.get('error');
+    if (error) {
+      const alertDiv = document.createElement('div');
+      alertDiv.className = 'alert alert-danger text-center';
+      alertDiv.textContent = decodeURIComponent(error);
+      document.body.insertBefore(alertDiv, document.querySelector('.container'));
+    }
+  });
+</script>
+
          <div class="form-group">
             <label for="email">Email Address:</label>
             <div class="input-group">
