@@ -1,9 +1,11 @@
 <?php
 session_start();
-if (isset($_SESSION['success'])) {
-    echo "<script>alert('" . $_SESSION['success'] . "');</script>";
-    unset($_SESSION['success']);
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'doctor') {
+    header("Location: LogIn.html");
+    exit();
 }
+$doctor_id = $_SESSION['user_id'];
+
 ?>
 
 <?php include 'db_connect.php';

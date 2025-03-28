@@ -53,11 +53,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($role === "Patient") {
         $stmt = $connection->prepare("INSERT INTO patient (id, firstName, lastName, Gender, DoB, emailAddress, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssss", $id, $firstname, $lastname, $gender, $dob, $email, $password);
+           $_SESSION['patient_id'] = $id;
+    $_SESSION['user_id'] = $id;        
+    $_SESSION['role'] = 'patient'; 
         $redirect = "pationt-page.php";
     } elseif ($role === "Doctor") {
         $stmt = $connection->prepare("INSERT INTO doctor (id, firstName, lastName, uniqueFileName, SpecialityID, emailAddress, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssss", $id, $firstname, $lastname, $profile_picture, $speciality, $email, $password);
-        $_SESSION['doctor_id'] = $id;
+     $_SESSION['doctor_id'] = $id;
+$_SESSION['user_id'] = $id;
+$_SESSION['role'] = 'doctor';
 
         $redirect = "Doctor-Page.php";
     } else {
@@ -66,7 +71,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($stmt->execute()) {
-        echo "<script>alert('Registration successful!'); window.location='$redirect';</script>";
+    $_SESSION['success'] = "Registration successful!";
+header("Location: $redirect");
+exit();
+
     } else {
         echo "<script>alert('Error: " . $stmt->error . "'); window.history.back();</script>";
     }
