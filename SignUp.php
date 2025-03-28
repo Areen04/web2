@@ -25,7 +25,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>alert('Error: ID already exists.'); window.history.back();</script>";
         exit;
     }
+$emailCheckStmt = $connection->prepare("SELECT emailAddress FROM patient WHERE emailAddress = ? UNION SELECT emailAddress FROM doctor WHERE emailAddress = ?");
+$emailCheckStmt->bind_param("ss", $email, $email);
+$emailCheckStmt->execute();
+$emailResult = $emailCheckStmt->get_result();
 
+if ($emailResult->num_rows > 0) {
+    echo "<script>alert('Error: Email is already registered.'); window.location.href = 'SignUp.html';</script>";
+    exit;
+}
     $profile_picture = "";
     if ($role === "Doctor" && isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0) {
         $allowedExtensions = ["jpg", "jpeg", "png", "gif"];

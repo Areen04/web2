@@ -54,7 +54,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // خزن الرسالة في السيشن وارجع لصفحة الفورم
     $_SESSION['login_error'] = $error;
-    header("Location: LogIn.html");
-    exit();
+ echo "<script>
+  localStorage.setItem('loginError', '" . addslashes($error) . "');
+  window.location.href = 'LogIn.html';
+</script>";
+exit();
+
+  
 }
 ?>
