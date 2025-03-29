@@ -52,11 +52,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($role === "Patient") {
         $stmt = $connection->prepare("INSERT INTO patient (id, firstName, lastName, Gender, DoB, emailAddress, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssss", $id, $firstname, $lastname, $gender, $dob, $email, $password);
-        $redirect = "pationt-page.html";
+        $redirect = "pationt-page.php";
     } elseif ($role === "Doctor") {
         $stmt = $connection->prepare("INSERT INTO doctor (id, firstName, lastName, uniqueFileName, SpecialityID, emailAddress, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssss", $id, $firstname, $lastname, $profile_picture, $speciality, $email, $password);
-        $redirect = "Doctor’s-Page.html";
+        $redirect = "Doctor-Page.php";
     } else {
         echo "<script>alert('Invalid role.'); window.history.back();</script>";
         exit;
