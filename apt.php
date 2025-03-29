@@ -165,15 +165,21 @@ $doctor_id = intval($_POST['id']);
             
             </div>
         
-    <footer style="background: #38B2AC; color: white; padding: 10px; margin-top: 50px; text-align: center; font-size: 0.9em;">
+   <footer style="background: #38B2AC; color: white; padding: 10px; margin-top: 50px; text-align: center; font-size: 0.9em;">
         <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; height: 50px;">
             <p style="margin: 0;">&copy; 2025 WeCare</p>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
                 <h5 style="margin: 0; font-size: 0.9em;">Contact Us</h5>
                 <div style="display: flex; align-items: center; gap: 10px;">
-                    <a href="https://web.whatsapp.com/" target="_blank"><img src="img/facebook-icon.png" alt="WhatsApp" width="20"></a>
-                    <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram-icon.png" alt="Instagram" width="20"></a>
-                    <a href="https://www.snapchat.com/" target="_blank"><img src="img/twitter-icon.png" alt="Snapchat" width="20"></a>
+                    <a href="https://web.whatsapp.com/" target="_blank">
+                        <img src="img/facebook-icon (1).png" alt="WhatsApp" style="width: 20px; height: 20px;">
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <img src="img/instagram-icon (1).png" alt="Instagram" style="width: 20px; height: 20px;">
+                    </a>
+                    <a href="https://www.snapchat.com/" target="_blank">
+                        <img src="img/twitter-icon.png" alt="Snapchat" style="width: 20px; height: 20px;">
+                    </a>
                 </div>
             </div>
         </div>

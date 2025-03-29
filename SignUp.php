@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 error_reporting(E_ALL);
@@ -24,7 +25,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>alert('Error: ID already exists.'); window.history.back();</script>";
         exit;
     }
+$emailCheckStmt = $connection->prepare("SELECT emailAddress FROM patient WHERE emailAddress = ? UNION SELECT emailAddress FROM doctor WHERE emailAddress = ?");
+$emailCheckStmt->bind_param("ss", $email, $email);
+$emailCheckStmt->execute();
+$emailResult = $emailCheckStmt->get_result();
 
+if ($emailResult->num_rows > 0) {
+    echo "<script>alert('Error: Email is already registered.'); window.location.href = 'SignUp.html';</script>";
+    exit;
+}
     $profile_picture = "";
     if ($role === "Doctor" && isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0) {
         $allowedExtensions = ["jpg", "jpeg", "png", "gif"];
@@ -52,10 +61,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($role === "Patient") {
         $stmt = $connection->prepare("INSERT INTO patient (id, firstName, lastName, Gender, DoB, emailAddress, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssss", $id, $firstname, $lastname, $gender, $dob, $email, $password);
+           $_SESSION['patient_id'] = $id;
+    $_SESSION['user_id'] = $id;        
+    $_SESSION['role'] = 'patient'; 
         $redirect = "pationt-page.php";
     } elseif ($role === "Doctor") {
         $stmt = $connection->prepare("INSERT INTO doctor (id, firstName, lastName, uniqueFileName, SpecialityID, emailAddress, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssss", $id, $firstname, $lastname, $profile_picture, $speciality, $email, $password);
+     $_SESSION['doctor_id'] = $id;
+$_SESSION['user_id'] = $id;
+$_SESSION['role'] = 'doctor';
+
         $redirect = "Doctor-Page.php";
     } else {
         echo "<script>alert('Invalid role.'); window.history.back();</script>";
@@ -63,7 +79,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($stmt->execute()) {
-        echo "<script>alert('Registration successful!'); window.location='$redirect';</script>";
+    $_SESSION['success'] = "Registration successful!";
+header("Location: $redirect");
+exit();
+
     } else {
         echo "<script>alert('Error: " . $stmt->error . "'); window.history.back();</script>";
     }

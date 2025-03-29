@@ -1,15 +1,24 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'doctor') {
+    header("Location: LogIn.html");
+    exit();
+}
+$doctor_id = $_SESSION['user_id'];
+
+?>
+
 <?php include 'db_connect.php';
-$conn = new mysqli("localhost","root","","wecare");
 
 
-if ($conn->connect_error) {
-    die("connectin field" . $conn->connect_error);
+if ($connection->connect_error) {
+    die("connectin field" . $connection->connect_error);
 }
 
 
 if (!isset($_SESSION['doctor_id'])) {
     
-    header("Location: login.php");
+    header("Location: LogIn.html");
     exit();
 }
 
@@ -19,7 +28,7 @@ $query = "SELECT d.firstName, d.lastName, d.emailAddress, d.uniqueFileName, s.sp
           JOIN Speciality s ON d.SpecialityID = s.id 
           WHERE d.id = $doctor_id";
 
-$result = $conn->query($query);
+$result = $connection->query($query);
 
 
 if ($result->num_rows == 1) {
@@ -51,7 +60,9 @@ if ($result->num_rows == 1) {
         <div class="bg-primary text-white text-center py-5" style="background-size: cover; height: 300px; background-image: url('img/hero-bg.png');">
             <div class="container">
                 <div class="position-absolute top-0 end-0 m-3">
-                    <a href="HomePage.html" class="text-white fw-bold text-decoration-none fs-4">Log Out</a>
+                    <a href="logout.php" class="text-white fw-bold text-decoration-none fs-4">
+                        <img src="img/logoutIcon.png" alt="Logout" width="50">
+                    </a>
                 </div>
                 <div class="container">
                     <img src="img/logo2.png" alt="logo" class="header_logo">

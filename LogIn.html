@@ -23,7 +23,17 @@
             <h3>Login</h3>
          </div>
 
-         
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const errorMessage = localStorage.getItem('loginError');
+    if (errorMessage) {
+      alert("Incorrect email, password, or role. Please try again."); 
+      localStorage.removeItem('loginError');
+    }
+  });
+</script>
+
          <div class="form-group">
             <label for="email">Email Address:</label>
             <div class="input-group">
