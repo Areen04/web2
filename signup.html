@@ -103,12 +103,13 @@
                <input type="password" class="form-control" name="password" placeholder="Password" required>
             </div>
          </div>
+          <input type="hidden" name="user_role" value="Patient">
          <div class="text-center">
             <button type="submit" class="btn signup_btn">Register</button>
          </div>
      </form>
 
-      <!-- Doctor Form -->
+      
      <!-- Doctor Form -->
 <form id="doctorForm" method="POST" action="SignUp.php" enctype="multipart/form-data" class="mt-4" style="display: none;">
 
@@ -177,11 +178,28 @@
          <input type="password" class="form-control" name="password" placeholder="Password" required>
       </div>
    </div>
+   
+   <input type="hidden" name="user_role" value="Doctor">
+
+
    <div class="text-center">
       <button type="submit" class="btn signup_btn">Register</button>
    </div>
 </form>
 
    </div>
+    <script>
+   function toggleForm(role) {
+      document.getElementById("patientForm").style.display = role === "Patient" ? "block" : "none";
+      document.getElementById("doctorForm").style.display = role === "Doctor" ? "block" : "none";
+
+      // نحدث قيمة user_role داخل الفورم اللي ظاهر
+      const patientInput = document.querySelector("#patientForm input[name='user_role']");
+      const doctorInput = document.querySelector("#doctorForm input[name='user_role']");
+      if (patientInput) patientInput.value = role;
+      if (doctorInput) doctorInput.value = role;
+   }
+</script>
+
 </body>
 </html>
