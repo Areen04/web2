@@ -1,5 +1,8 @@
 
+
 <?php
+file_put_contents("debug_log.txt", json_encode($_POST), FILE_APPEND);
+
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -10,7 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lastname = trim($_POST['lastname'] ?? '');
     $email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
     $password = password_hash(trim($_POST['password'] ?? ''), PASSWORD_DEFAULT);
-    $role = trim($_POST['role'] ?? '');
+
+$role = ucfirst(strtolower(trim($_POST['user_role'] ?? '')));
+echo "<script>alert('Role received: $role');</script>";
+
+
     $id = trim($_POST['id'] ?? '');
     $gender = $_POST['gender'] ?? NULL;
     $dob = $_POST['dob'] ?? NULL;
@@ -57,6 +64,7 @@ if ($emailResult->num_rows > 0) {
 
         $profile_picture = $uniqueFileName;
     }
+echo "<script>alert('Role received: $role');</script>";
 
     if ($role === "Patient") {
         $stmt = $connection->prepare("INSERT INTO patient (id, firstName, lastName, Gender, DoB, emailAddress, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
