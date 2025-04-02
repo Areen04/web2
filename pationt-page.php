@@ -38,8 +38,9 @@ $patient = $result->fetch_assoc() ?? [];
 $query = "SELECT a.id, a.date, a.time, a.status, d.firstName, d.lastName, d.uniqueFileName 
           FROM appointment a
           JOIN doctor d ON a.DoctorID = d.id
-          WHERE a.PatientID = ?
+          WHERE a.PatientID = ? AND a.status != 'done'
           ORDER BY a.date, a.time ASC";
+
 
 $stmt = $connection->prepare($query);
 $stmt->bind_param("i", $patient_id);
