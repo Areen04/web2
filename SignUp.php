@@ -1,7 +1,7 @@
 
 
 <?php
-file_put_contents("debug_log.txt", json_encode($_POST), FILE_APPEND);
+
 
 session_start();
 error_reporting(E_ALL);
