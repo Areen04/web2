@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'doctor') {
 }
 $doctor_id = $_SESSION['user_id'];
 
-include 'db_connect.php';
+include 'php/db_connect.php';
 
 if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
@@ -115,7 +115,7 @@ $result = $connection->query($query);
     <td><?= $row['reason'] ?></td>
     <td>
         <?php if ($row['status'] == 'Pending'): ?>
-            <a href="confirm.php?id=<?= $row['appointment_id'] ?>" class="btn btn-warning btn-sm">Confirm</a>
+            <a href="php/confirm.php?id=<?= $row['appointment_id'] ?>" class="btn btn-warning btn-sm">Confirm</a>
         <?php elseif ($row['status'] == 'Confirmed'): ?>
             <a href="preMed.php?patient_id=<?= $row['PatientID'] ?>" class="btn btn-success btn-sm">Prescribe</a>
         <?php endif; ?>

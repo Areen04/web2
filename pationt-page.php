@@ -22,7 +22,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'patient') {
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include 'db_connect.php';
+include 'php/db_connect.php';
 
 $patient_id = $_SESSION['user_id'];
 

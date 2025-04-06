@@ -39,7 +39,7 @@ $emailCheckStmt->execute();
 $emailResult = $emailCheckStmt->get_result();
 
 if ($emailResult->num_rows > 0) {
-    echo "<script>alert('Error: Email is already registered.'); window.location.href = 'SignUp.html';</script>";
+    echo "<script>alert('Error: Email is already registered.'); window.location.href = '../SignUp.html';</script>";
     exit;
 }
     $profile_picture = "";
@@ -73,7 +73,7 @@ if ($emailResult->num_rows > 0) {
            $_SESSION['patient_id'] = $id;
     $_SESSION['user_id'] = $id;        
     $_SESSION['role'] = 'patient'; 
-        $redirect = "pationt-page.php";
+        $redirect = "../pationt-page.php";
     } elseif ($role === "Doctor") {
         $stmt = $connection->prepare("INSERT INTO doctor (id, firstName, lastName, uniqueFileName, SpecialityID, emailAddress, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssss", $id, $firstname, $lastname, $profile_picture, $speciality, $email, $password);
@@ -81,7 +81,7 @@ if ($emailResult->num_rows > 0) {
 $_SESSION['user_id'] = $id;
 $_SESSION['role'] = 'doctor';
 
-        $redirect = "Doctor-Page.php";
+        $redirect = "../Doctor-Page.php";
     } else {
         echo "<script>alert('Invalid role.'); window.history.back();</script>";
         exit;

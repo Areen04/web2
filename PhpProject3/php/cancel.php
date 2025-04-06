@@ -1,14 +1,14 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'patient') {
-    header("Location: HomePage.html");
+    header("Location: ../HomePage.html");
     exit();
 }
 
 include 'db_connect.php';
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-    header("Location: patient_homepage.php?error=InvalidAppointment");
+    header("Location: ../patient_homepage.php?error=InvalidAppointment");
     exit();
 }
 
@@ -28,9 +28,9 @@ $stmt2 = $connection->prepare($query2);
 $stmt2->bind_param("ii", $appointment_id, $patient_id);
 
 if ($stmt2->execute()) {
-    header("Location: pationt-page.php?success=AppointmentCanceled");
+    header("Location: ../pationt-page.php?success=AppointmentCanceled");
 } else {
-    header("Location: pationt-page.php?error=CancelFailed");
+    header("Location: ../pationt-page.php?error=CancelFailed");
 }
 
 $stmt2->close();

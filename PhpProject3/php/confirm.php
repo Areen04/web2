@@ -2,7 +2,7 @@
 session_start();
 include("db_connect.php");
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'doctor') {
-    header("Location: HomePage.html");
+    header("Location: ../HomePage.html");
     exit();
 }
 
@@ -17,7 +17,7 @@ $query = "UPDATE Appointment SET status = 'Confirmed' WHERE id = $appointment_id
 
 if ($connection->query($query)) {
     
-    header("Location: Doctor-Page.php");
+    header("Location: ../Doctor-Page.php");
     exit();
 } else {
     echo "Failed to update appointment: " . $connection->error;

@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['patient_id'] = $id; // 👈 ضروري علشان pationt-page ما يطردك
     $_SESSION['user_name'] = $firstname . " " . $lastname;
     $_SESSION['role'] = $role;
-    header("Location: pationt-page.php");
+    header("Location: ../pationt-page.php");
 }
                 exit();
             } else {
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['login_error'] = $error;
  echo "<script>
   localStorage.setItem('loginError', '" . addslashes($error) . "');
-  window.location.href = 'LogIn.html';
+  window.location.href = '../LogIn.html';
 </script>";
 exit();
 
