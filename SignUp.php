@@ -65,7 +65,7 @@ if ($emailResult->num_rows > 0) {
 
         $profile_picture = $uniqueFileName;
     }
-echo "<script>alert('Role received: $role');</script>";
+
 
     if ($role === "Patient") {
         $stmt = $connection->prepare("INSERT INTO patient (id, firstName, lastName, Gender, DoB, emailAddress, password) VALUES (?, ?, ?, ?, ?, ?, ?)");

@@ -1,0 +1,1 @@
+{"firstname":"9","lastname":"0","id":"10101","gender":"Female","dob":"2022-05-13","email":"admin2@mawj.com","password":"1","user_role":"Patient"}
