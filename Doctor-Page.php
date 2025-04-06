@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'doctor') {
-    header("Location: LogIn.html");
+    header("Location: HomePage.html");
     exit();
 }
 $doctor_id = $_SESSION['user_id'];
@@ -13,7 +13,7 @@ if ($connection->connect_error) {
 }
 
 if (!isset($_SESSION['doctor_id'])) {
-    header("Location: LogIn.html");
+    header("Location: HomePage.html");
     exit();
 }
 
@@ -62,7 +62,6 @@ if ($result->num_rows == 1) {
             <div>
                 <p><strong>First Name:</strong> <?= $doctor['firstName']; ?></p>
                 <p><strong>Last Name:</strong> <?= $doctor['lastName']; ?></p>
-                <p><strong>ID:</strong> <?= $doctor_id; ?></p>
                 <p><strong>Speciality:</strong> <?= $doctor['speciality']; ?></p>
                 <p><strong>Email:</strong> <?= $doctor['emailAddress']; ?></p>
             </div>

@@ -8,7 +8,7 @@ include 'db_connect.php';
 
 // تأكيد تسجيل الدخول كـ دكتور
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'doctor') {
-    header("Location: LogIn.html");
+    header("Location: HomePage.html");
     exit();
 }
 

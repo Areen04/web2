@@ -5,16 +5,16 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 
-if (isset($_SESSION['success'])) {
-    echo "<script>alert('" . $_SESSION['success'] . "');</script>";
-    unset($_SESSION['success']);
+if (isset($_SESSION['message'])) {
+    echo "<script>alert('" . $_SESSION['message'] . "');</script>";
+    unset($_SESSION['message']);
 }
 ?>
 
 <?php
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'patient') {
-    header("Location: LogIn.html");
+    header("Location: HomePage.html");
     exit();
 }
 
