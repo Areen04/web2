@@ -83,9 +83,6 @@ $appointments = $stmt->get_result();
             <div class="card-body">
                 <p><strong>First Name:</strong> <?= htmlspecialchars($patient['firstName']) ?></p>
                 <p><strong>Last Name:</strong> <?= htmlspecialchars($patient['lastName']) ?></p>
-                <p><strong>ID:</strong> <?= htmlspecialchars($patient_id) ?></p>
-                <p><strong>Gender:</strong> <?= isset($patient['Gender']) ? htmlspecialchars($patient['Gender']) : 'Not Specified'; ?></p>
-                <p><strong>DoB:</strong> <?= htmlspecialchars($patient['DoB']) ?></p>
                 <p><strong>Email:</strong> <?= htmlspecialchars($patient['emailAddress']) ?></p>
             </div>
         </div>

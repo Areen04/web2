@@ -116,6 +116,8 @@ while ($med = $med_result->fetch_assoc()):
 <?php endwhile; ?>
 
             </div>
+            <input type="hidden" name="patient_id" value="<?= $patient_id ?>">
+
             <button type="submit" class="btn btn-primary" style="background-color: #40beaf; border-color: #40beaf;">Submit</button>
         </form>
     </div>
