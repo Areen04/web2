@@ -64,7 +64,7 @@ $appointments = $stmt->get_result();
         <div class="bg-primary text-white text-center py-5" style="background-size: cover; height: 300px; background-image: url('img/hero-bg.png');">
             <div class="container">
                 <div class="position-absolute top-0 end-0 m-3">
-                    <a href="logout.php" class="text-white fw-bold text-decoration-none fs-4">
+                    <a href="php/logout.php" class="text-white fw-bold text-decoration-none fs-4">
                         <img src="img/logoutIcon.png" alt="Logout" width="50">
                     </a>
                 </div>
@@ -116,7 +116,7 @@ $appointments = $stmt->get_result();
         </td>
         <td><?= htmlspecialchars($appointment['status']) ?></td>
         <td>
-    <a href="cancel.php?id=<?= $appointment['id'] ?>" 
+    <a href="php/cancel.php?id=<?= $appointment['id'] ?>" 
        class="btn btn-danger btn-sm" 
        onclick="return confirm('Are you sure you want to cancel this appointment?');">
         Cancel

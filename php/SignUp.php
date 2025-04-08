@@ -52,7 +52,7 @@ if ($emailResult->num_rows > 0) {
             exit;
         }
 
-        $target_dir = "uploads/";
+        $target_dir = "../uploads/";
         if (!is_dir($target_dir)) mkdir($target_dir, 0777, true);
 
         $uniqueFileName = uniqid() . "." . $ext;

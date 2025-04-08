@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['doctor_id'] = $id; // 👈 ضروري علشان Doctor-Page ما يطردك
     $_SESSION['user_name'] = $firstname . " " . $lastname;
     $_SESSION['role'] = $role;
-    header("Location: Doctor-Page.php");
+    header("Location: ../Doctor-Page.php");
 } else {
     $_SESSION['user_id'] = $id;
     $_SESSION['patient_id'] = $id; // 👈 ضروري علشان pationt-page ما يطردك

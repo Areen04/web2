@@ -46,7 +46,7 @@ if ($result->num_rows == 1) {
     <div class="bg-primary text-white text-center py-5" style="background-image: url('img/hero-bg.png'); height: 300px;">
         <div class="container">
             <div class="position-absolute top-0 end-0 m-3">
-                <a href="logout.php" class="text-white fw-bold fs-4"><img src="img/logoutIcon.png" width="50"></a>
+                <a href="php/logout.php" class="text-white fw-bold fs-4"><img src="img/logoutIcon.png" width="50"></a>
             </div>
             <img src="img/logo2.png" class="header_logo">
             <h1 class="display-5 fw-bold">Welcome, Dr. <?= $doctor['firstName']; ?></h1>
