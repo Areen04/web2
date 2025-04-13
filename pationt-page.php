@@ -116,11 +116,8 @@ $appointments = $stmt->get_result();
         </td>
         <td><?= htmlspecialchars($appointment['status']) ?></td>
         <td>
-    <a href="php/cancel.php?id=<?= $appointment['id'] ?>" 
-       class="btn btn-danger btn-sm" 
-       onclick="return confirm('Are you sure you want to cancel this appointment?');">
-        Cancel
-    </a>
+        <button class="btn btn-danger btn-sm cancel-btn" data-id="<?= $appointment['id'] ?>">Cancel</button>
+
 </td>
     </tr>
     <?php endwhile; ?>
@@ -147,5 +144,32 @@ $appointments = $stmt->get_result();
             </div>
         </div>
     </footer>
+    <script>
+document.querySelectorAll('.cancel-btn').forEach(button => {
+    button.addEventListener('click', function () {
+        if (confirm('Are you sure you want to cancel this appointment?')) {
+            const appointmentId = this.getAttribute('data-id');
+            const row = this.closest('tr');
+
+            fetch('php/delete_appointment.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `id=${appointmentId}`
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data.trim() === "true") {
+                    row.remove();
+                } else {
+                    alert("Failed to cancel the appointment.");
+                }
+            });
+        }
+    });
+});
+</script>
+
 </body>
 </html>
