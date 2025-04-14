@@ -115,8 +115,8 @@ $result = $connection->query($query);
     <td><?= $row['reason'] ?></td>
     <td>
         <?php if ($row['status'] == 'Pending'): ?>
-            <a href="php/confirm.php?id=<?= $row['appointment_id'] ?>" class="btn btn-warning btn-sm">Confirm</a>
-        <?php elseif ($row['status'] == 'Confirmed'): ?>
+            <button class="btn btn-warning btn-sm confirm-btn" data-id="<?= $row['appointment_id'] ?>" data-patient-id="<?= $row['PatientID'] ?>">Confirm</button>
+            <?php elseif ($row['status'] == 'Confirmed'): ?>
             <a href="preMed.php?patient_id=<?= $row['PatientID'] ?>" class="btn btn-success btn-sm">Prescribe</a>
         <?php endif; ?>
     </td>
@@ -182,5 +182,41 @@ $patients_result = $connection->query($query);
         </div>
     </div>
 </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const confirmButtons = document.querySelectorAll('.confirm-btn');
+
+    confirmButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const appointmentId = this.getAttribute('data-id');
+            const currentRow = this.closest('tr');
+
+            fetch('php/confirm.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `id=${appointmentId}`
+            })
+            .then(response => response.json())
+            .then(success => {
+                if (success) {
+                    // Update the status column
+                    const statusCell = currentRow.querySelector('td:last-child');
+                    const patientId = this.dataset.patientId || ''; // if you want to pass patient_id
+                    statusCell.innerHTML = `<a href="preMed.php?patient_id=${patientId}" class="btn btn-success btn-sm">Prescribe</a>`;
+                } else {
+                    alert('Failed to confirm appointment.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Something went wrong.');
+            });
+        });
+    });
+});
+</script>
+
 </body>
 </html>
