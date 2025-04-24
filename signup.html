@@ -193,7 +193,7 @@
       document.getElementById("patientForm").style.display = role === "Patient" ? "block" : "none";
       document.getElementById("doctorForm").style.display = role === "Doctor" ? "block" : "none";
 
-      // نحدث قيمة user_role داخل الفورم اللي ظاهر
+      
       const patientInput = document.querySelector("#patientForm input[name='user_role']");
       const doctorInput = document.querySelector("#doctorForm input[name='user_role']");
       if (patientInput) patientInput.value = role;

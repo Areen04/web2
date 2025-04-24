@@ -32,13 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // توجيه المستخدم حسب الدور
              if ($role == "doctor") {
     $_SESSION['user_id'] = $id;
-    $_SESSION['doctor_id'] = $id; // 👈 ضروري علشان Doctor-Page ما يطردك
+    $_SESSION['doctor_id'] = $id; 
     $_SESSION['user_name'] = $firstname . " " . $lastname;
     $_SESSION['role'] = $role;
     header("Location: ../Doctor-Page.php");
 } else {
     $_SESSION['user_id'] = $id;
-    $_SESSION['patient_id'] = $id; // 👈 ضروري علشان pationt-page ما يطردك
+    $_SESSION['patient_id'] = $id; 
     $_SESSION['user_name'] = $firstname . " " . $lastname;
     $_SESSION['role'] = $role;
     header("Location: ../pationt-page.php");
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // خزن الرسالة في السيشن وارجع لصفحة الفورم
+   
     $_SESSION['login_error'] = $error;
  echo "<script>
   localStorage.setItem('loginError', '" . addslashes($error) . "');
